@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd">
+
+	<head>
+		<meta name="copyright" content="Atos Origin" />
+		<title>Guess Page</title>
+		<style type="text/css">@import url(${asset:context:static/css/style.css});</style>
+	</head>
+
+	<body>
+
+		<!-- Replace the message here with the dynamic value from Guess Page -->
+		<div class="pForm">
+			<span class="commts">_Message_</span>
+		</div>
+	
+		<div class="pForm">
+			<h2>Make a guess between one and ten:</h2>
+			<span class="pForm" t:type="loop" t:source="1..10" t:value="guess">
+				<!--  Add and action link here to execute the verifyChoice method with the specified number -->
+				${guess}
+			</span>
+		</div>
+
+	</body>
+
+</html>

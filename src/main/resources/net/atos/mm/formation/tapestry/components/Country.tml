@@ -1,0 +1,6 @@
+<t:container xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd">
+
+	<a t:type="actionlink" t:id="frFlag" t:context="literal:fr" class="flag"><img src="${asset:fr.png}" width="27px" height="17px" /></a>
+	<a t:type="actionlink" t:id="enFlag" t:context="literal:en" class="flag"><img src="${asset:en.png}" width="27px" height="17px" /></a>
+
+</t:container>

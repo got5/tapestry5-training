@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd">
+
+	<head>
+		<meta name="copyright" content="Atos Origin" />
+		<title>Formulaire de Login</title>
+		<style type="text/css">@import url(${asset:context:static/css/style.css});</style>
+	</head>
+
+	<body>
+
+		<div t:type="banner" />
+
+ 		<form t:type="form" t:id="verifyForm" id="verifyForm" method="post">
+
+			<p><span t:type="errors" /></p>
+
+			<fieldset id="fsGeneral">
+				<p><label t:type="label" t:for="login" for="login">Login</label> 
+				<input t:type="textfield" t:value="login" t:id="login" type="text" id="login" value="" t:disabled="maxAttemptsExceeded"/></p>
+				
+				<p><label t:type="label" t:for="password" for="password">Password</label> 
+				<input t:type="passwordfield" t:value="password" t:id="password" type="password" id="password" value="" t:disabled="maxAttemptsExceeded"/></p>
+			</fieldset>
+
+			<fieldset id="fsSubmit">
+				<p><input t:type="submit" t:clientId="btSubmit" type="button" value="Submit" /></p>
+			</fieldset>
+
+			<p><span class="commts">Pour une nouvelle inscription, <a t:type="pageLink" t:page="Register" href="Register">cliquez ici</a></span></p>
+
+		</form>
+
+	</body>
+
+</html>

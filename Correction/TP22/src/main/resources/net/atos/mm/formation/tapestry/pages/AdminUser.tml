@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd">
+
+	<head>
+		<meta name="copyright" content="Atos Origin" />
+		<title>Page d'administration des utilisateurs</title>
+		<style type="text/css">@import url(${asset:context:static/css/style.css});</style>
+	</head>
+
+	<body>
+
+		<div t:type="banner" />
+
+		<table t:type="grid" t:source="userLst" t:row="currentUser" t:pagePosition="bottom" t:rowsPerPage="10" t:model="model">
+		
+			<t:parameter name="deleteUserCell">
+
+        		<a t:id="deleteUser" t:type="actionlink" t:context="currentUser.login">Supprimer</a>
+
+		    </t:parameter> 
+
+			<t:parameter name="loginCell">
+
+        		<a t:id="editUser" t:type="actionlink" t:context="currentUser.login">${currentUser.login}</a>
+
+		    </t:parameter> 
+		
+		</table>
+
+
+	</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd">
+
+	<head>
+		<meta name="copyright" content="Atos Origin" />
+		<title>Page principale de l'application</title>
+		<style type="text/css">@import url(${asset:context:static/css/style.css});</style>
+	</head>
+
+	<body>
+
+		<div>_Menu_</div>
+
+		<div id="main">
+		<p>Bonjour Mr <b>${loggedUser.login}</b>.</p>
+
+		<p>_photo_</p>
+
+		<p>Voici la liste de vos portefeuilles :</p>
+
+		<!-- Define blocks for view and edit mode -->
+		<p>Advanced Grid</p>
+		
+		<table border="1" cellpadding="0" cellspacing="0" class="forms">
+
+			<tr>
+				<th align="center" class="tableh">Label</th>
+				<th align="center" class="tableh">Amount</th>
+				<th align="center" class="tableh">Booking date</th>
+			</tr>
+
+			<tr t:type="loop" t:index="index" t:value="currentPortfolio" t:source="loggedUser.portfolios" class="${rowClass}">
+				<td align="center">${currentPortfolio.label}</td>
+				<td align="center">${currentPortfolio.amount}</td>
+				<td align="center">${currentPortfolio.bookingDate}</td>
+			</tr>
+		</table>
+	
+		</div>
+
+		<div>_Footer_</div>
+
+	</body>
+
+</html>

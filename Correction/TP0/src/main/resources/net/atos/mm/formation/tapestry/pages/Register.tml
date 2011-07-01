@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd">
+
+	<head>
+		<meta name="copyright" content="Atos Origin" />
+		<title>Enregistrer un nouvel utilisateur</title>
+		<style type="text/css">@import url(${asset:context:static/css/style.css});</style>
+	</head>
+
+	<body>
+
+		<p t:type="banner"></p>
+
+		<form id="registerForm" method="post">
+
+			<p><span>_errors</span></p>
+
+			<fieldset id="fsGeneral">
+				<p><label for="login">Login</label> <input type="text" id="login" value="" size="20" /></p>
+				<p><label for="password">Password</label> <input type="password" id="password" value="" size="20" /></p>
+				<p><label for="email">Email</label> <input type="text" id="email" value="" size="20" /></p>
+				<p><label for="age">Age</label> <input type="text" id="age" value="" size="20" /></p>
+				<p><label for="admin">Admin</label> <input type="checkbox" id="admin" /></p>
+			</fieldset>
+
+			<fieldset id="fsSubmit">
+				<p><input id="btSubmit" type="submit" value="Submit" /></p>
+			</fieldset>
+
+			<p><span class="commts">&lt;&lt;&nbsp;<a t:type="pagelink" t:page="login">Back to index page</a></span></p>
+
+		</form>
+
+	</body>
+
+</html>

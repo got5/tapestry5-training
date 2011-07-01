@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="sample Application Test Suite" annotations="1.5">
+    <test name="Unit Tests">
+        <packages>
+            <package name="net.awl.tapestry5"/>
+            
+        </packages>
+    </test>
+</suite>

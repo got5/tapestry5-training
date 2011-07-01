@@ -1,0 +1,17 @@
+<html>
+
+	<head>
+		<meta name="copyright" content="Atos Origin" />
+		<title>Welcome Page</title>
+		<style type="text/css">@import url(${asset:context:static/css/style.css});</style>
+	</head>
+
+	<body>
+
+		<p><img src="${asset:context:static/images/logo.gif}" /></p>
+
+		<p>${message:welcome} (Session Start : ${sessionStart})</p>
+
+	</body>
+
+</html>
