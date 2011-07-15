@@ -90,9 +90,7 @@ public class UserManager/* <a-zone id="extends"> *//* </a-zone> *//*
 	 */
 	private static UserManager singleInstance;
 	
-	@Inject
-	private Logger logger;
-	
+
 	/**
 	 * 
 	 * 
@@ -107,9 +105,9 @@ public class UserManager/* <a-zone id="extends"> *//* </a-zone> *//*
 		defaultUser.setEmail("tapestry@domain.com");
 		try {
 			addUser(defaultUser);
-			logger.info("[UserManager]Default user tapestry/password has been added.");
+			
 		} catch (AlreadyExistsException aeEx) {
-			logger.error(aeEx.getMessage());
+			System.out.println(aeEx.getMessage());
 		}
 		/* </a-zone> */
 

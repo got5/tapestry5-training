@@ -1,7 +1,7 @@
 /* -------------------------------------------------------------------- 
                     Formation Web2
                     Atos Worldline
-            By Cï¿½line Cocatrix, Atos Worldline, 2007
+            By Céline Cocatrix, Atos Worldline, 2007
                     Created on 03/2007
 -------------------------------------------------------------------- */
 /* --------------- DEFAULT VALUES ----------------- */
@@ -227,19 +227,14 @@ div.t-beaneditor label {
   color: #1590BE;
   background: transparent;
   padding-right: 1.5%;
-  clear:none;
 }
 
 DIV.t-beaneditor-row {
-  text-align: left;
+  text-align: center;
   margin: 0 auto;
   background: #fcfce3;
   padding-bottom: 15px;
   border: 0px;
-}
-
-DIV.t-beaneditor-row:last-child {
-  text-align: center;
 }
 
 DIV.t-beaneditor-row p {text-align: left; padding-top: 15px;}
