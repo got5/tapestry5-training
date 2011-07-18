@@ -5,22 +5,22 @@ import java.util.Date;
 import org.apache.tapestry5.Asset;
 import org.apache.tapestry5.Field;
 import org.apache.tapestry5.MarkupWriter;
-import org.apache.tapestry5.RenderSupport;
 import org.apache.tapestry5.ValidationException;
 import org.apache.tapestry5.Validator;
 import org.apache.tapestry5.ioc.MessageFormatter;
 import org.apache.tapestry5.services.AssetSource;
 import org.apache.tapestry5.services.FormSupport;
+import org.apache.tapestry5.services.javascript.JavaScriptSupport;
 
 public class FutureDateValidator implements Validator<Boolean, Date>{
 
-	final private RenderSupport renderSupport;
+	final private JavaScriptSupport javaScriptSupport;
 
 	private Asset javascript; 
 	
-	public FutureDateValidator(RenderSupport renderSupport,AssetSource assetSource){ 
+	public FutureDateValidator(JavaScriptSupport renderSupport,AssetSource assetSource){ 
              
-			this.renderSupport = renderSupport; 
+			this.javaScriptSupport = renderSupport; 
 			javascript = assetSource.getContextAsset("static/js/validator.js", null);
     } 
 	
@@ -40,6 +40,7 @@ public class FutureDateValidator implements Validator<Boolean, Date>{
 			MessageFormatter formatter, Date value) throws ValidationException {
 		
 		Date today = new Date();
+		
 		if(constraintValue && today.after(value))
 			throw new ValidationException(formatter.format());
 		else if(!constraintValue && today.before(value))
@@ -55,7 +56,7 @@ public class FutureDateValidator implements Validator<Boolean, Date>{
 			MessageFormatter formatter, MarkupWriter writer,
 			FormSupport formSupport) {
 		
-		formSupport.addValidation(field, "future", formatter.format(field.getLabel()), constraintValue);
-		renderSupport.addScriptLink(javascript); 
+		//formSupport.addValidation(field, "future", formatter.format(field.getLabel()), constraintValue);
+		//javaScriptSupport.importJavaScriptLibrary(javascript);
 	}
 }

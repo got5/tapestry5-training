@@ -5,53 +5,55 @@ import java.util.Date;
 import org.apache.tapestry5.Asset;
 import org.apache.tapestry5.Field;
 import org.apache.tapestry5.MarkupWriter;
-import org.apache.tapestry5.RenderSupport;
 import org.apache.tapestry5.ValidationException;
 import org.apache.tapestry5.Validator;
 import org.apache.tapestry5.ioc.MessageFormatter;
 import org.apache.tapestry5.services.AssetSource;
 import org.apache.tapestry5.services.FormSupport;
-
+import org.apache.tapestry5.services.javascript.JavaScriptSupport;
 
 public class FutureDateValidator implements Validator<Boolean, Date>{
 
-	final private RenderSupport renderSupport;
+	final private JavaScriptSupport javaScriptSupport;
 
 	private Asset javascript; 
 	
-	public FutureDateValidator(RenderSupport renderSupport,AssetSource assetSource){ 
+	public FutureDateValidator(JavaScriptSupport renderSupport,AssetSource assetSource){ 
              
-			this.renderSupport = renderSupport; 
+			this.javaScriptSupport = renderSupport; 
 			javascript = assetSource.getContextAsset("static/js/validator.js", null);
     } 
 	
 	public Class<Boolean> getConstraintType() {
-		//TODO implement
+		//TODO
 		return null;
 	}
 
 	public Class<Date> getValueType() {
-		//TODO implement
+		//TODO
 		return null;
 	}
 
 	public String getMessageKey() {
-		//TODO implement
+		//TODO
 		return null;
 	}
 
 	public void validate(Field field, Boolean constraintValue,
 			MessageFormatter formatter, Date value) throws ValidationException {
+		//TODO
 	}
 
 	public boolean isRequired() {
-		return false;
+		//TODO
+		return null;
 	}
 
 	public void render(Field field, Boolean constraintValue,
 			MessageFormatter formatter, MarkupWriter writer,
 			FormSupport formSupport) {
+		
 		//formSupport.addValidation(field, "future", formatter.format(field.getLabel()), constraintValue);
-		//renderSupport.addScriptLink(javascript); 
+		//javaScriptSupport.importJavaScriptLibrary(javascript);
 	}
 }

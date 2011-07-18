@@ -4,13 +4,15 @@
 	<head>
 		<meta name="copyright" content="Atos Origin" />
 		<title>Ajout de portfolio</title>
-		<link rel="stylesheet" type="text/css" href="${asset:context:static/css/style.css}"  media="screen" />
+		<link href="${asset:context:static/css/style.css}" rel="stylesheet" type="text/css" />
 	</head>
 
 	<body>
-		<p t:type="banner"></p>
+		<t:zone t:id="maZone" t:visible="false">
+			Votre Porfolio a bien été ajouté. <a t:type="pageLink" t:page="Main">Retour à la Page Principale</a>
+		</t:zone>
 			
-		<form id="addPortolfioForm" t:type="beaneditform" t:object="portfolio" t:submitLabel="message:submit-label">
+		<form t:id="addPortfolioForm" id="addPortfolioForm" t:type="beaneditform" t:object="portfolio" t:submitLabel="message:submit" t:zone="maZone">
 			<p><span t:type="errors" /></p>
 
 			<t:parameter name="label">
