@@ -5,10 +5,8 @@ import net.atos.mm.formation.tapestry.data.UserManager;
 
 import org.apache.tapestry5.EventConstants;
 import org.apache.tapestry5.annotations.AfterRender;
-import org.apache.tapestry5.annotations.SessionState;
 import org.apache.tapestry5.annotations.Component;
 import org.apache.tapestry5.annotations.OnEvent;
-import org.apache.tapestry5.annotations.Retain;
 import org.apache.tapestry5.annotations.SessionState;
 import org.apache.tapestry5.beaneditor.Validate;
 import org.apache.tapestry5.corelib.components.Form;
@@ -19,7 +17,6 @@ import org.apache.tapestry5.corelib.components.Form;
  */
 public class Register {
 
-	@Retain
 	private UserManager manager;
 
 	@SessionState
@@ -47,9 +44,7 @@ public class Register {
 	 */
 	@OnEvent(EventConstants.ACTIVATE)
 	public void activateManager() {
-		if (manager == null) {
-			manager = UserManager.getInstance();
-		}
+		manager = UserManager.getInstance();
 	}
 
 	/**
@@ -57,7 +52,7 @@ public class Register {
 	 * 
 	 * @return Register Page if user already exists
 	 */
-	@OnEvent(value=EventConstants.VALIDATE_FORM, component="registerForm")
+	@OnEvent(value=EventConstants.VALIDATE, component="registerForm")
 	public void verifyIfUserAlreadyExists() {
 		if (manager != null) {
 			User ttcUser = manager.getUserByLogin(login);
