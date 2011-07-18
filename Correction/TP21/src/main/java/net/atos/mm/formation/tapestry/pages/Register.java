@@ -4,9 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import net.atos.mm.formation.tapestry.data.User;
+import net.atos.mm.formation.tapestry.data.UserManager;
 import net.atos.mm.formation.tapestry.services.IUserManager;
 
 import org.apache.tapestry5.EventConstants;
+import org.apache.tapestry5.annotations.AfterRender;
 import org.apache.tapestry5.annotations.Component;
 import org.apache.tapestry5.annotations.OnEvent;
 import org.apache.tapestry5.annotations.SessionState;
@@ -48,6 +50,7 @@ public class Register {
 	 */
 	@OnEvent(EventConstants.ACTIVATE)
 	public void activateManager() {
+		
 	}
 
 	/**
@@ -55,7 +58,7 @@ public class Register {
 	 * 
 	 * @return Register Page if user already exists
 	 */
-	@OnEvent(value=EventConstants.VALIDATE_FORM, component="registerForm")
+	@OnEvent(value=EventConstants.VALIDATE, component="registerForm")
 	public void verifyIfUserAlreadyExists() {
 		if (manager != null) {
 			User ttcUser = manager.getUserByLogin(login);
@@ -87,6 +90,7 @@ public class Register {
 			try {
 				// Add user
 				manager.addUser(user);
+				
 				// Set application state logged user
 				loggedUser = user;
 			} catch (Exception ex) {
@@ -101,6 +105,11 @@ public class Register {
 		return Main.class;
 	}
 
+	@AfterRender
+	public void clearFormErrors(){
+		registerForm.clearErrors();
+	}
+	
 	public boolean isAdmin() {
 		return admin;
 	}
@@ -148,7 +157,7 @@ public class Register {
 	public List<String> provideDomainNameCompletion(String email) {
 
 		if(email.contains("@")){
-			List<String> result = new ArrayList<String>();
+			ArrayList<String> result = new ArrayList<String>();
 			String prefix = email.substring(0,email.indexOf("@"));
 			
 			result.add(prefix+"@atosworldline.be");

@@ -47,7 +47,7 @@
 
 package net.atos.mm.formation.tapestry.data;
 
-/* <a-zone id="imports"> */
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
@@ -57,24 +57,14 @@ import java.util.Iterator;
 import org.apache.tapestry5.ioc.annotations.Inject;
 import org.slf4j.Logger;
 
-/* </a-zone> */
 
 /**
  * This class implements all the services on UserManager
  * 
  * @version $Id: UserManager.java,v 1.1 2009/11/23 14:53:55 a160688 Exp $
  */
-public class UserManager/* <a-zone id="extends"> *//* </a-zone> *//*
-																	 * <a-zone *
-																	 * id
-																	 * ="implements"
-																	 * >
-																	 *//*
-																		 * </a-zone
-																		 * >
-																		 */{
-	/* <a-zone id="fields"> */
-
+public class UserManager{
+	
 	private ArrayList users = new ArrayList(50);
 
 	private ArrayList admins = new ArrayList();
@@ -97,7 +87,6 @@ public class UserManager/* <a-zone id="extends"> *//* </a-zone> *//*
 	 */
 	private UserManager() {
 
-		/* <a-zone id="UserManager()"> */
 		User defaultUser = new User();
 		defaultUser.setLogin("tapestry");
 		defaultUser.setPassword("password");
@@ -109,12 +98,9 @@ public class UserManager/* <a-zone id="extends"> *//* </a-zone> *//*
 		} catch (AlreadyExistsException aeEx) {
 			System.out.println(aeEx.getMessage());
 		}
-		/* </a-zone> */
+	
 
 	}
-
-	/* <a-zone id="constructors"> */
-	/* </a-zone> */
 
 	/**
 	 * 
@@ -124,8 +110,6 @@ public class UserManager/* <a-zone id="extends"> *//* </a-zone> *//*
 	 */
 	public void addUser(User user) throws AlreadyExistsException {
 
-		/* <a-zone id="addUser(User)"> */
-		// add the user just created
 		if (user != null) {
 
 			// Verify is user exists
@@ -159,7 +143,7 @@ public class UserManager/* <a-zone id="extends"> *//* </a-zone> *//*
 			}
 			actions.add(addPorfolio);
 			//actions.add(uploadPhoto);
-			/* </a-zone> */
+			
 
 		} else {
 			throw new IllegalArgumentException("Attribut User cannot be null.");
@@ -174,11 +158,10 @@ public class UserManager/* <a-zone id="extends"> *//* </a-zone> *//*
 	 */
 	public void addPortfolioToUser(User user, Portfolio portfolio) {
 
-		/* <a-zone id="addPortfolioToUser(User,Portfolio)"> */
 		if (portfolio == null)
 			return;
 		user.getPortfolios().add(portfolio);
-		/* </a-zone> */
+		
 	}
 
 	/**
@@ -189,7 +172,6 @@ public class UserManager/* <a-zone id="extends"> *//* </a-zone> *//*
 	 */
 	public User getUserByLogin(String login) {
 
-		/* <a-zone id="getUserByLogin(String)"> */
 		for (Iterator i = users.iterator(); i.hasNext();) {
 			User user = (User) i.next();
 			if (user.getLogin().equals(login)) {
@@ -198,7 +180,6 @@ public class UserManager/* <a-zone id="extends"> *//* </a-zone> *//*
 		}
 		return null;
 
-		/* </a-zone> */
 	}
 
 	/**
@@ -207,17 +188,13 @@ public class UserManager/* <a-zone id="extends"> *//* </a-zone> *//*
 	 * @return An instance of {@link UserManager}
 	 */
 	public static synchronized UserManager getInstance() {
-		/* <a-zone id="getInstance()"> */
-
 		if (singleInstance == null) {
 			singleInstance = new UserManager();
 		}
 		return singleInstance;
-
-		/* </a-zone> */
 	}
 
-	/* <a-zone id="methods"> */
+
 	public ArrayList getAdmins() {
 		return this.admins;
 	}
@@ -225,6 +202,4 @@ public class UserManager/* <a-zone id="extends"> *//* </a-zone> *//*
 	public ArrayList getNonAdmins() {
 		return this.nonAdmins;
 	}
-	/* </a-zone> */
-
 }
