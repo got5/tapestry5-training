@@ -7,14 +7,14 @@ import net.atos.mm.formation.tapestry.data.User;
 
 import org.apache.tapestry5.Block;
 import org.apache.tapestry5.EventConstants;
-import org.apache.tapestry5.annotations.SessionState;
 import org.apache.tapestry5.annotations.OnEvent;
 import org.apache.tapestry5.annotations.Persist;
+import org.apache.tapestry5.annotations.SessionState;
 import org.apache.tapestry5.ioc.Messages;
 import org.apache.tapestry5.ioc.annotations.Inject;
 
 public class Main {
-
+	
 	private static final String DEFAULT_DATE_FORMAT = "dd/MM/yyyy";
 	
 	/** Show the loop grid */
@@ -120,17 +120,11 @@ public class Main {
 	 */
 	public String getRowClass() {
 		// Implement here the choice of CSS class used to display a row
-
-		// Choose class for the current index
-		String result = "tbl1";
-		if (index % 2 != 0) {
-			result = "tbl2";
+		if (index % 2 == 0) {
+			return "tbl1";
+		} else {
+			return "tbl2";
 		}
-
-			
-
-		return result;
-
 	}
 
 	public void setRowClass(String rowClass) {
@@ -142,7 +136,7 @@ public class Main {
 	 * 
 	 */
 	public Block getPorfoliosGrid() {
-
+		
 		// Check for the selected mode and return the appropriate block
 		if (GRID.equals(this.mode)) {
 			return this.advancedList;
@@ -151,7 +145,7 @@ public class Main {
 		}
 
 	}
-
+	
 	/**
 	 * This method is used to setup the advanced view mode
 	 * 
