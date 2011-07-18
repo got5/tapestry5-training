@@ -4,7 +4,7 @@
 	<head>
 		<meta name="copyright" content="Atos Origin" />
 		<title>Page principale de l'application</title>
-		<style type="text/css">@import url(${asset:context:static/css/style.css});</style>
+		<link href="${asset:context:static/css/style.css}" rel="stylesheet" type="text/css" />
 	</head>
 
 	<body>
@@ -13,8 +13,6 @@
 
 		<div id="main">
 		<p>Bonjour Mr <b>${loggedUser.login}</b>.</p>
-
-		<p>_photo_</p>
 
 		<p>Voici la liste de vos portefeuilles :</p>
 

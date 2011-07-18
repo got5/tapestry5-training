@@ -14,8 +14,6 @@
 		<div id="main">
 		<p>Bonjour Mr <b>${loggedUser.login}</b>.</p>
 
-		<p>_photo_</p>
-
 		<p>Voici la liste de vos portefeuilles :</p>
 
 		<!-- Define blocks for view and edit mode -->

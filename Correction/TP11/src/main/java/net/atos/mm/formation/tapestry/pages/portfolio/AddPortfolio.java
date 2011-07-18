@@ -30,9 +30,7 @@ public class AddPortfolio {
 	 */
 	@OnEvent(EventConstants.ACTIVATE)
 	public void activateManager() {
-		if(manager == null) {
-			manager = UserManager.getInstance();	
-		}		
+		manager = UserManager.getInstance();	
 	}
 
 	public Portfolio getPortfolio() {
