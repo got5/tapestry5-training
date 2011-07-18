@@ -17,7 +17,6 @@ public class Login {
 	/**
 	 * Used to store a UserManager instance on the page instance
 	 */
-	@Retain
 	private UserManager manager;
 
 	/**
@@ -49,10 +48,7 @@ public class Login {
 
 	@OnEvent(EventConstants.ACTIVATE)
 	public void activateManager() {
-		// Instantiate UserManager
-		if (manager == null) {
-			manager = UserManager.getInstance();
-		}
+		manager = UserManager.getInstance();
 		
 		if(getMaxAttemptsExceeded()) {
 			verifyForm.clearErrors();
