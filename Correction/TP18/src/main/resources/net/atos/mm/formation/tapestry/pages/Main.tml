@@ -4,7 +4,7 @@
 	<head>
 		<meta name="copyright" content="Atos Origin" />
 		<title>Page principale de l'application</title>
-		<style type="text/css">@import url(${asset:context:static/css/style.css});</style>
+		<link href="${asset:context:static/css/style.css}" rel="stylesheet" type="text/css" />
 	</head>
 
 	<body>
@@ -12,32 +12,38 @@
 		<div t:type="menu" t:listOfActions="loggedUser.actions"></div>
 
 		<div id="main">
-		<p>${message:hello} Mr <b>${loggedUser.login}</b>.</p>
+		<p>Bonjour Mr <b>${loggedUser.login}</b>.</p>
 
 		<p>Voici la liste de vos portefeuilles :</p>
 
-		<p t:type="delegate" t:to="porfoliosGrid"></p>
+		<div t:type="delegate" t:to="porfoliosGrid"></div>
+
+		<br/>
 
 		<!-- Define blocks for view and edit mode -->
 		<t:block id="simpleList">
-			<p><a t:type="actionlink" t:id="advanced">Advanced Grid</a></p>
 		
-			<table border="1" cellpadding="0" cellspacing="0" class="forms">
+			<p><a t:type="actionlink" t:id="advanced">Advanced Grid</a></p>
+			
+			<table border="1" cellpadding="0" cellspacing="0" class="t-data-grid">
 	
+				<thead>
 				<tr>
-					<th align="center" class="tableh">Label</th>
-					<th align="center" class="tableh">Amount</th>
-					<th align="center" class="tableh">Booking date</th>
+					<th align="center" class="label-header">Label</th>
+					<th align="center" class="amount-header">Amount</th>
+					<th align="center" class="bookingDate-header">Booking date</th>
+									
 				</tr>
+				</thead>
 	
-				<tr t:type="loop" t:index="index" t:value="currentPortfolio" t:source="loggedUser.portfolios" class="${rowClass}">
-					<td align="center">${currentPortfolio.label}</td>
-					<td align="center">${currentPortfolio.amount}</td>
-					<td align="center">${currentPortfolio.bookingDate}</td>
+				<tr t:type="loop" t:index="index" t:source="loggedUser.portfolios" t:value="currentPortfolio" class="${rowClass}">
+					<td align="center" class="label-cell">${currentPortfolio.label}</td>
+					<td align="center" class="amount-cell">${currentPortfolio.amount}</td>
+					<td class="bookingDate-cell" t:type="output" t:value="currentPortfolio.bookingDate" t:format="dateFormat" align="center"></td>
 				</tr>
 			</table>
 		</t:block>
-
+		
 		<t:block id="advancedList">
 			<p><a t:type="actionlink" t:id="simple">Simple Grid</a></p>
 			
@@ -50,12 +56,9 @@
 			</table>
 			
 		</t:block>
-
-
 		</div>
-
 		<div t:type="footer"/>
-
+		
 	</body>
 
 </html>
