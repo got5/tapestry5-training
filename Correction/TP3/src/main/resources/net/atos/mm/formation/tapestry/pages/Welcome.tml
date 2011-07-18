@@ -11,7 +11,7 @@
 		<p><img src="${asset:context:static/images/logo.gif}" /></p>
 
 		<p>${message:welcome} (Session Start : ${sessionStart})</p>
-
+		
 	</body>
 
 </html>
