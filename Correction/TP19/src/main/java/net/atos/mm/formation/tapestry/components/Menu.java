@@ -80,5 +80,6 @@ public class Menu {
 	public void setVerifiedList(ArrayList<Action> verifiedList) {
 		this.verifiedList = verifiedList;
 	}
+	
 
 }
