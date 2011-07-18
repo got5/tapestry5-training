@@ -4,18 +4,14 @@
 	<head>
 		<meta name="copyright" content="Atos Origin" />
 		<title>Page principale de l'application</title>
-		<link rel="stylesheet" type="text/css" href="${asset:context:static/css/style.css}"  media="screen" />
+		<link href="${asset:context:static/css/style.css}" rel="stylesheet" type="text/css" />
 	</head>
 
 	<body>
 
-		<div t:type="menu" t:listOfActions="loggedUser.actions"/>
+		<div t:type="menu" t:listOfActions="loggedUser.actions"></div>
 
-			
-		<div t:type="form">
-			<div t:type="errors" />
-		</div>
-	
+		<div id="main">
 		<p>Bonjour Mr <b>${loggedUser.login}</b>.</p>
 
 		<p>Voici la liste de vos portefeuilles :</p>
@@ -50,11 +46,10 @@
 		
 		<t:block id="advancedList">
 			<p><a t:type="actionlink" t:id="simple">Simple Grid</a></p>
-
-		
 		</t:block>
+		</div>
+		<div>_Footer_</div>
 		
-
 	</body>
 
 </html>
