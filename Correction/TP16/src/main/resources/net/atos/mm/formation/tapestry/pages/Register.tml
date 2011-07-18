@@ -4,7 +4,7 @@
 	<head>
 		<meta name="copyright" content="Atos Origin" />
 		<title>Enregistrer un nouvel utilisateur</title>
-		<style type="text/css">@import url(${asset:context:static/css/style.css});</style>
+		<link href="${asset:context:static/css/style.css}" rel="stylesheet" type="text/css" />
 	</head>
 
 	<body>
@@ -18,7 +18,7 @@
 			<fieldset id="fsGeneral">
 				<p><label for="login">Login</label> <input t:type="textfield" t:value="login" type="text" id="login" value="" size="20" /></p>
 				<p><label for="password">Password</label> <input t:type="passwordfield" t:value="password" type="password" id="password" value="" size="20" /></p>
-				<p><label for="email">Email</label> <input t:type="textfield" t:value="email" t:mixins="autocomplete" t:minchars="3" type="text" t:id="email" value="" size="20" /></p>
+				<p><label for="email">Email</label> <input t:type="textfield" t:value="email" type="text" id="email" value="" size="20" t:mixins="autocomplete" t:minchars="3" t:id="email"/></p>
 				<p><label for="age">Age</label> <input t:type="textfield" t:value="age" type="text" id="age" value="" size="20" /></p>
 				<p><label for="admin">Admin</label> <input t:type="checkbox" t:value="admin" type="checkbox" id="admin" /></p>
 			</fieldset>
