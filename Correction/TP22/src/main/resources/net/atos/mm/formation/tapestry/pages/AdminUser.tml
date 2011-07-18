@@ -4,7 +4,7 @@
 	<head>
 		<meta name="copyright" content="Atos Origin" />
 		<title>Page d'administration des utilisateurs</title>
-		<style type="text/css">@import url(${asset:context:static/css/style.css});</style>
+		<link href="${asset:context:static/css/style.css}" rel="stylesheet" type="text/css" />
 	</head>
 
 	<body>
