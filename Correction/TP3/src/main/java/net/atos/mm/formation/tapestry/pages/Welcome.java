@@ -105,7 +105,11 @@ public class Welcome
      */
     public boolean getLastHiloMessage()
     {
-    	return (messageFromHilo != null && !("".equals(messageFromHilo)));
+    	if((messageFromHilo != null && !("".equals(messageFromHilo))))
+    	{
+	    	//If the User found the good number, we reinit the seed value
+	    	seed = System.currentTimeMillis();
+    	}
     }
     
 

@@ -106,10 +106,11 @@ public class Welcome
      * 
      * @return true if hilo has been played and successful, false otherwise
      */
-    public boolean getLastHiloMessage()
-    {
-    	return (messageFromHilo != null && !("".equals(messageFromHilo)));
-    }
+    if((messageFromHilo != null && !("".equals(messageFromHilo))))
+	{
+    	//If the User found the good number, we reinit the seed value
+    	seed = System.currentTimeMillis();
+	}
     
 
 }

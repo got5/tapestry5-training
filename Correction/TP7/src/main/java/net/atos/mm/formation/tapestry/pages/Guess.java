@@ -6,6 +6,7 @@ import org.apache.tapestry5.EventConstants;
 import org.apache.tapestry5.annotations.InjectPage;
 import org.apache.tapestry5.annotations.OnEvent;
 import org.apache.tapestry5.annotations.Persist;
+import org.apache.tapestry5.annotations.Property;
 
 public class Guess
 {
@@ -13,12 +14,14 @@ public class Guess
     /**
      * This variable is used to store in session the last message for the user
      */
-    @Persist("flash")
+	@Property
+	@Persist("flash")
     private String message;
 
     /**
      * This variable is used to store the current user choice
      */
+    @Property
     private int guess;
 
     /**
@@ -30,7 +33,7 @@ public class Guess
      * Used to count the user attempts
      */
     private int count;
-
+    
     /**
      * Used to create the random target
      */
@@ -43,30 +46,6 @@ public class Guess
     @InjectPage
     private Welcome welcomePage;
 
-    /**
-     * Used by the template to get the current hilo game message
-     * 
-     * @return
-     */
-    public String getMessage()
-    {
-	return message;
-    }
-
-    public int getGuess()
-    {
-	return guess;
-    }
-
-    /**
-     * This method is used to set the guess number
-     * 
-     * @param guess
-     */
-    public void setGuess(int _guess)
-    {
-	guess = _guess;
-    }
 
     /**
      * This method must be called on action event to verify if the user has
@@ -81,23 +60,23 @@ public class Guess
     private Object verifyChoice(int userChoice)
     {
 
-	count++;
+    	count++;
 
-	if (userChoice == target)
-	{
-	    welcomePage.setMessageFromHilo(String.format("You have been successful in %d hits", count));
-	    return welcomePage;
-	}
+		if (userChoice == target)
+		{
+		    welcomePage.setMessageFromHilo(String.format("You have been successful in %d hits", count));
+		    return welcomePage;
+		}
 
-	if (userChoice < target)
-	{
-	    message = String.format("%d is too low.", userChoice);
-	} else
-	{
-	    message = String.format("%d is too high.", userChoice);
-	}
-
-	return null;
+		if (userChoice < target)
+		{
+		    message = String.format("%d is too low.", userChoice);
+		} else
+		{
+		    message = String.format("%d is too high.", userChoice);
+		}
+	
+		return null;
     }
 
     /**
@@ -105,36 +84,35 @@ public class Guess
      * action link. The Welcome page create a random number that the user has to
      * find.
      * 
-     * @param number
-     *            the number to find
+     * @param seed
+     *            the seed to initialize a random number
      */
     public void setupGame(long seed)
     {
-	Random random = new Random(seed);
-
-	this.count = 0;
-	this.message = null;
-	this.target = random.nextInt(10) + 1;
-	this.seed = seed;
+		Random random = new Random(seed);
+	
+		this.count = 0;
+		this.message = null;
+		this.target = random.nextInt(10) + 1;
+		this.seed = seed;
     }
-
-    // Aller plus loin
+    
+ // Aller plus loin
     @OnEvent(EventConstants.ACTIVATE)
     private void init(int guess, int count, long seed)
     {
-	Random random = new Random(seed);
-
-	this.seed = seed;
-	this.guess = guess;
-	this.count = count;
-	this.target = random.nextInt(10) + 1;
+		Random random = new Random(seed);
+	
+		this.seed = seed;
+		this.guess = guess;
+		this.count = count;
+		this.target = random.nextInt(10) + 1;
     }
 
     @OnEvent(EventConstants.PASSIVATE)
     public Object[] getContext()
     {
-	return (new Object[] { Integer.valueOf(guess), Integer.valueOf(count), Long.valueOf(seed) });
+    	return (new Object[] { Integer.valueOf(guess), Integer.valueOf(count), Long.valueOf(seed) });
     }
-
 
 }
