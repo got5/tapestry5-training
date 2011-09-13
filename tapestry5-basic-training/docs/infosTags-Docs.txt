@@ -1,0 +1,37 @@
+# Use this file to list all changes on Tapestry Training Documents
+
+# 20/02/2008 C. Cordenier 
+# Tag integration-version-en
+
+# Remarques traducteurs
+Slide 108 : Compléter la phrase : "Cet attribut permet..."
+Slide 120 : Correction : "Le corps de la balise englobant..."
+Slide 167 : Correction : "Exécuter si la ..."
+Slide 185 : Correction : "Les balises une balise..."
+Slide 230 : Correction : "C'est la méthode highlight..."
+
+=> Support de TP
+page 23 : Correction "TP précédent" au lieu de "TP suivant"
+page 30 : Phrase incomplète "Utiliser le champ file pour stocker..."
+page 40 : Modification de l'utilisateur "tapestry/password"
+
+# V1_4
+Présentation powerpoint
+- Retirer les référence à Spring
+- Retirer le parallèle Tapestry/MVC
+- Retirer la préconisation de nommage des paramètres de composant '$' ou '_'
+
+# V1_5
+Présentation Powerpoint
+- Correction liste des projets (ajout tapestry-annotation)
+- Ajout slide concernant la passivation
+- Mis a jour des slides relatifs au Formulaire
+- Ajout d'informations concernant la dernière version 5.0.11
+- Corrections divers sur les samples '_'
+- La page index a ete renomme en login
+
+# V1_6
+- Passage à Tapestry 5.0.13
+- Structuration Maven des sources
+- Réorganisation des répertoires de corrections
+- Modifications sur le powerpoint (divers remarques formation Lyon 08/07/08 au 22/07/08

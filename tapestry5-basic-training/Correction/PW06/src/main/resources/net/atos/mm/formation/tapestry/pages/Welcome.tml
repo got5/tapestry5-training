@@ -1,0 +1,7 @@
+<html t:type="layout" t:title="Welcome Page" xmlns="http://www.w3.org/1999/xhtml" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd">	
+		
+		<p>${message:welcome} (Session Start : ${sessionStart})</p>
+		
+		<a t:type="actionLink" t:id="hilo">${message:game}</a><br/><br/><br/> 
+		
+</html>

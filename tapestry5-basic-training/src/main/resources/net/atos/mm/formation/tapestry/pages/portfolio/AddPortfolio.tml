@@ -1,0 +1,9 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" t:title="Portfolio Page" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd">
+
+	<form t:type="beaneditform" t:object="portfolio">
+
+
+		</form>
+
+</html>

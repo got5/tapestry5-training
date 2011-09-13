@@ -1,0 +1,44 @@
+<html t:type="layout" t:title="Main Page" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd">
+
+	<div t:type="menu" t:listOfActions="loggedUser.actions"></div>
+
+		<div id="main">
+		<p>Bonjour Mr <b>${loggedUser.login}</b>.</p>
+
+		<p>Voici la liste de vos portefeuilles :</p>
+		
+		<div t:type="delegate" t:to="porfoliosGrid"></div>
+		<t:block t:id="simpleList">
+		<!-- Define blocks for view and edit mode -->
+		<p><a t:type="actionLink" t:id="advanced">Advanced Grid</a></p>
+		
+		<table border="1" cellpadding="0" cellspacing="0" class="forms">
+
+			<tr>
+				<th align="center" class="tableh">Label</th>
+				<th align="center" class="tableh">Amount</th>
+				<th align="center" class="tableh">Booking date</th>
+			</tr>
+
+			<tr t:type="loop" t:index="index" t:value="currentPortfolio" t:source="loggedUser.portfolios" class="${rowClass}">
+				<td align="center">${currentPortfolio.label}</td>
+				<td align="center">${currentPortfolio.amount}</td>
+				<td align="center">${currentPortfolio.bookingDate}</td>
+			</tr>
+		</table>
+		</t:block>
+		
+		<t:block id="advancedList">
+			<p><a t:type="actionlink" t:id="simple">Simple Grid</a></p>
+			<table t:type="grid" t:source="loggedUser.portfolios" t:rowIndex="index"  t:row="currentPortfolio" t:pagerPosition="top" t:rowsPerPage="3" t:rowClass="rowClass">
+			
+				<t:parameter name="bookingDateCell">
+					<t:output t:value="currentPortfolio.bookingDate" t:format="dateFormat" />
+				</t:parameter>
+
+			</table>
+		</t:block>	
+		</div>
+
+
+</html>

@@ -1,0 +1,18 @@
+<t:container xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd">
+	
+	
+	<div id="menu">
+		<p t:type="country" />
+		<br />
+		<t:loop t:type="loop" t:source="verifiedList" t:value="currentAction">
+			<p class="link">
+				<a class="btlink" t:type="pagelink" t:page="prop:currentAction.url">${currentAction.libelle}</a>
+			</p>
+		</t:loop>
+			<p class="link">
+				<t:logout t:id="logout" t:indexPage="literal:Login"/>
+			</p>	
+		
+	</div>
+	
+</t:container>
