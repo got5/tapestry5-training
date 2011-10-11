@@ -12,9 +12,9 @@
 			
 			<input t:type="select" 
 			       t:id="type" 
-				    t:value="phone.type" />
+				    t:value="phone?.type" />
 			<input t:type="textfield" 
-			       t:value="phone.number" />
+			       t:value="phone?.number" />
 						
 			<a t:type="removeRowLink">Delete</a>
 		</div>
