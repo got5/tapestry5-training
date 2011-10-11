@@ -9,14 +9,17 @@ import org.apache.tapestry5.services.javascript.JavaScriptSupport;
 
 public class AppModule {
 
-	public static void contributeFieldValidatorSource(
-			MappedConfiguration<String, Validator> configuration, final JavaScriptSupport renderSupport, 
-			final AssetSource assetSource) {
-	
-	}
 	
 	public static void contributeComponentMessagesSource(
 			OrderedConfiguration<String> configuration) {
+		
+			
+		
+	}
 	
+	public static void contributeFieldValidatorSource(
+			MappedConfiguration<String, Validator> configuration, final JavaScriptSupport renderSupport, 
+			final AssetSource assetSource) {
+		
 	}
 }
