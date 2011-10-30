@@ -2,7 +2,7 @@
 <suite name="tapestry5-advanced-training Application Test Suite" annotations="1.5">
     <test name="Unit Tests">
         <packages>
-            <package name="net.atos.mm.formation.tapestry"/>
+            <package name="net.atos.mm.formation.tapestry.unit"/>
         </packages>
     </test>
 </suite>

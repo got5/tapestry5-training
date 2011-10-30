@@ -1,0 +1,31 @@
+group = 'net.awl.tapestry5'
+version = '1.0-SNAPSHOT'
+archivesBaseName='tapestry5-advanced-training'
+	
+apply plugin: 'war'
+apply plugin: 'jetty'
+apply plugin: "java"
+apply plugin: 'eclipse'
+	
+sourceCompatibility = "1.5"
+targetCompatibility = "1.5"
+			
+dependencies {
+	compile "org.apache.tapestry:tapestry-core:5.3-beta-21"
+	compile "org.apache.tapestry:tapestry-yuicompressor:5.3-beta-21"
+	compile "javax.servlet:servlet-api:2.5"
+	testCompile "org.testng:testng:5.8:jdk15@jar"
+}
+
+repositories {
+    mavenLocal()
+    mavenRepo urls: ["http://repository.apache.org/snapshots/", "https://repository.apache.org/content/groups/staging/"]
+}
+
+test {
+    useTestNG()
+    options.suites("src/test/conf/testng.xml")
+    maxHeapSize = "600M"
+    jvmArgs("-XX:MaxPermSize=256M")
+    enableAssertions = true
+}
