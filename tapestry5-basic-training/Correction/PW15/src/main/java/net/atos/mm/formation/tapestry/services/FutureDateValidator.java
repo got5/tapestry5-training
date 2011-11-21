@@ -39,7 +39,11 @@ public class FutureDateValidator implements Validator<Boolean, Date>{
 	public void validate(Field field, Boolean constraintValue,
 			MessageFormatter formatter, Date value) throws ValidationException {
 		
-		Date today = new Date();
+	  // Implement the server validation here
+		// Throw a ValidationException if validation constraints has not been respected
+		// Use the MessageFormatter parameter to format the error message
+		
+    Date today = new Date();
 		
 		if(constraintValue && today.after(value))
 			throw new ValidationException(formatter.format());
@@ -55,8 +59,8 @@ public class FutureDateValidator implements Validator<Boolean, Date>{
 	public void render(Field field, Boolean constraintValue,
 			MessageFormatter formatter, MarkupWriter writer,
 			FormSupport formSupport) {
-		
-		//formSupport.addValidation(field, "future", formatter.format(field.getLabel()), constraintValue);
-		//javaScriptSupport.importJavaScriptLibrary(javascript);
+		// Implement the client validation here
+		formSupport.addValidation(field, "future", formatter.format(field.getLabel()), constraintValue);
+		javaScriptSupport.importJavaScriptLibrary(javascript);
 	}
 }

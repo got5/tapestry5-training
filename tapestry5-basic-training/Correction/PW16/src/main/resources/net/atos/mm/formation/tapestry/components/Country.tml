@@ -1,0 +1,5 @@
+<t:container xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+<t:loop t:source="supportedLocales" t:value="locale">
+	<a t:type="actionlink" t:id="flag" t:context="locale" class="flag"> <img src="${flag}" width="27px" height="17px" /></a>
+</t:loop>
+</t:container>

@@ -64,7 +64,7 @@ public class Main {
 	 * Used to modify the display of "bookingDate"
 	 */
 	@Property
-	private SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+	private SimpleDateFormat dateFormat;
 
 	/**
 	 * Used to store
@@ -79,7 +79,8 @@ public class Main {
 	 */
 	@OnEvent(EventConstants.ACTIVATE)
 	public Object assertUserExists() {
-
+    
+    dateFormat = new SimpleDateFormat("dd/MM/yyyy");
 		// Verify if user has logged in
 		if (!loggedUserExists) {
 			return Login.class;

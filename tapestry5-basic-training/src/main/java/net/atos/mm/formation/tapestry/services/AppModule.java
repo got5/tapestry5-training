@@ -22,4 +22,8 @@ public class AppModule {
 			final AssetSource assetSource) {
 		
 	}
+	
+	public static void contributeApplicationDefaults(MappedConfiguration<String, String> conf){
+		
+	}
 }

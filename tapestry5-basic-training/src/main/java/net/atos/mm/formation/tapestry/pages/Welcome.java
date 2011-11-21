@@ -41,8 +41,7 @@ public class Welcome
 	@Inject
 	private Logger logger;
 	
-    @OnEvent("activate")
-    public void initializeRandomizer()
+    public void onActivate()
     {
 	if (seed == null)
 	{

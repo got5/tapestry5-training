@@ -45,7 +45,7 @@ public class Login {
 	
 	@OnEvent(EventConstants.ACTIVATE)
 	public void activateManager() {
-		if(manager==null) manager = UserManager.getInstance();
+		manager = UserManager.getInstance();
 		
 		if(getMaxAttemptsExceeded()) {
 			verifyForm.clearErrors();

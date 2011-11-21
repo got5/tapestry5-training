@@ -15,7 +15,7 @@ public class Guess
      * This variable is used to store in session the last message for the user
      */
 	@Property
-	@Persist("flash")
+	@Persist
     private String message;
 
     /**
@@ -25,13 +25,15 @@ public class Guess
     private int guess;
 
     /**
-     * This variable is used to store in session the target number
+     * This variable is used to store the target number
      */
+    @Persist
     private int target;
 
     /**
      * Used to count the user attempts
      */
+    @Persist
     private int count;
     
     /**

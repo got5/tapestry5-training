@@ -27,7 +27,7 @@ public class TestLogin extends TestCase
 	{
 		
 		Document doc = pageTester.renderPage("login");
-
+    //Beware! check the id used by Tapestry for the BeanEditForm component (see HTML source code or BeanEditForm.tml source)
 		Element loginForm = doc.getElementById("form");
 		Map<String, String> fieldValues = new HashMap<String, String>();
 		fieldValues.put("login", "tapestry");

@@ -1,4 +1,4 @@
-﻿/** 
+/** 
  * AtosOrigin Multimedia
  */
 /* <a-zone id="history"> */

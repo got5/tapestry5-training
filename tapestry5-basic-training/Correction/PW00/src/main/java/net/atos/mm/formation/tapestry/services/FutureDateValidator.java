@@ -14,46 +14,34 @@ import org.apache.tapestry5.services.javascript.JavaScriptSupport;
 
 public class FutureDateValidator implements Validator<Boolean, Date>{
 
-	final private JavaScriptSupport javaScriptSupport;
-
-	private Asset javascript; 
-	
-	public FutureDateValidator(JavaScriptSupport renderSupport,AssetSource assetSource){ 
-             
-			this.javaScriptSupport = renderSupport; 
-			javascript = assetSource.getContextAsset("static/js/validator.js", null);
-    } 
-	
 	public Class<Boolean> getConstraintType() {
-		//TODO
-		return null;
+		return Boolean.class;
 	}
 
 	public Class<Date> getValueType() {
-		//TODO
-		return null;
+		return Date.class;
 	}
 
 	public String getMessageKey() {
-		//TODO
-		return null;
+		return "";
 	}
 
 	public void validate(Field field, Boolean constraintValue,
 			MessageFormatter formatter, Date value) throws ValidationException {
-		//TODO
+		
+		// Implement the server validation here
+		// Throw a ValidationException if validation constraints has not been respected
+		// Use the MessageFormatter parameter to format the error message
+		
 	}
 
 	public boolean isRequired() {
-		//TODO
-		return null;
+		return false;
 	}
 
 	public void render(Field field, Boolean constraintValue,
 			MessageFormatter formatter, MarkupWriter writer,
 			FormSupport formSupport) {
-		
-		//formSupport.addValidation(field, "future", formatter.format(field.getLabel()), constraintValue);
-		//javaScriptSupport.importJavaScriptLibrary(javascript);
+			// Implement the client validation here
 	}
 }
