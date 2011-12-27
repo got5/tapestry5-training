@@ -1,1 +1,114 @@
-//formation.css
+html, body{background: #ECF5FF;}
+body {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 62.5%;
+}
+
+ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,body,html,p,blockquote,fieldset,input {
+	margin:0;
+	padding:0; 
+}
+
+h1, h2, h3, h4, h5 { font-family: Arial, Helvetica, sans-serif; }
+
+body#login {
+	width: auto;
+	margin: 0 auto;
+}
+
+fieldset {
+	border: none;
+	padding-left: 15px;
+	margin: 15px 0 0 0;
+	position: inherit;
+	background: transparent url("../img/bg_fieldset.gif") repeat-y  0 0; 
+}
+
+fieldset p { clear: left; }
+fieldset p label {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	display: block; 
+	text-align: left;
+}
+fieldset p span {
+	display: block;
+	background: #E9E9E9;
+	width: 460px;
+	padding: 4px; 
+}
+fieldset p span select,
+fieldset p span input {
+	border: 1px solid #A7A7A7;
+	padding: 4px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	font-weight: bold;
+}
+fieldset p span select {
+	padding: 3px 4px; 
+}
+fieldset p span input { width: 450px; }
+fieldset p span select { width: 460px; }
+
+#sitewrapper #content {
+	clear: both;
+	background: #FFFFFF;
+	z-index: 100;
+	position: relative;
+	border: 1px solid #A7A7A7; 
+	margin-top: 20px;
+}
+#sitewrapper #content #main {
+	clear: both;
+	background: #FFFFFF;
+	z-index: 100;
+	position: relative;
+	border: 8px solid #F3F3F3 !important;
+	border: 7px solid #F3F3F3; /* Hack for IE, need to fix. Has to do with an extra 1px of whitespace between #content and #main. */
+	padding: 20px; 
+}
+
+			
+
+/* =Login
+--------------------*/
+body#login div.inner,
+body#login #user-password,
+body#login #remember-password,
+body#login #remember-password input,
+body#login #forgot-password input,
+body#login #sign_in { position: relative; height:auto; width: auto;}
+body#login #sitewrapper { width: 485px; margin: 0 auto;  }
+body#login #sitewrapper #header { width: 485px; }
+body#login #sitewrapper h1 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	padding-bottom: 7px;
+	border-bottom: 1px solid #A7A7A7;
+	margin-bottom: 10px; 
+}
+body#login #sitewrapper fieldset#user-email {font-size: 12px;}
+body#login #sitewrapper fieldset#user-email p span {
+	width: 395px;
+	margin-top: 5px; 
+}
+body#login #sitewrapper fieldset#user-email p span input {width: 385px; }
+body#login #sitewrapper fieldset#user-password {border-bottom: 20px solid #FFFFFF; }
+body#login #sitewrapper fieldset#user-password p {width: 400px; }
+body#login #sitewrapper fieldset#user-password p span {
+	width: 200px;
+	margin-top: 5px; 
+}
+body#login #sitewrapper fieldset#user-password p span input {width: 190px; }
+body#login #sitewrapper fieldset#user-password p strong {
+	font-weight: normal;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	margin: 29px 10px 0 0;
+	float: right; 
+}
+body#login div.t-error li {margin-left: 20px;}
+.k-field-error{border-color: red;}
+
+

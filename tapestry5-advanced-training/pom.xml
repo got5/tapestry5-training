@@ -11,6 +11,11 @@
             <artifactId>tapestry-core</artifactId>
             <version>${tapestry-release-version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.got5</groupId>
+            <artifactId>tapestry5-jquery</artifactId>
+            <version>3.0.0</version>
+        </dependency>
 		<dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
@@ -39,7 +44,7 @@
             <version>2.5</version>
             <scope>provided</scope>
         </dependency>
-
+		
     </dependencies>
     <build>
         <finalName>tapestry5-advanced-training</finalName>
@@ -108,6 +113,16 @@
 			<name>Apache Maven Staging Repository</name>
 			<url>https://repository.apache.org/content/groups/staging/</url>
 		</repository>
+		<repository>
+			<id>devlab722-repo</id>
+			<url>http://nexus.devlab722.net/nexus/content/repositories/releases</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
     </repositories>
 
     <pluginRepositories>
@@ -122,6 +137,6 @@ of a Tapestry Maven plugin is not required.   -->
     </pluginRepositories>
 
     <properties>
-        <tapestry-release-version>5.3-beta-21</tapestry-release-version>
+        <tapestry-release-version>5.3</tapestry-release-version>
     </properties>
 </project>

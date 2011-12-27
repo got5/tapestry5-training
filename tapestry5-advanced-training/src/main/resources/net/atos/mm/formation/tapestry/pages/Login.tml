@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd" xmlns:p="tapestry:parameter">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+
+<body id="login">
+
+	<div id="sitewrapper">
+
+        <div id="content">
+
+            <div id="main">
+                <h1>Sign In</h1>
+                <form t:type="form" t:id="login_form" t:clientValidation="false">
+                	<t:errors />
+                    <div id="email">
+                        <fieldset id="user-email">
+                            <p>
+                                <label t:type="label" t:for="user_login">Login<span><input t:type="textfield" t:id="user_login" t:value="login" name="user_login" tabindex="1" /></span></label>
+                            </p>
+					    </fieldset>
+					</div>
+
+                    <div id="password">
+                        <fieldset id="user-password">
+							 <p>
+								<label t:type="label" t:for="user_password">Password<span><input t:type="passwordfield" t:id="user_password" t:value="password" name="user_password" tabindex="2" /></span></label>
+							 </p>
+                        </fieldset>
+                        <p>
+							<input t:type="submit" t:id="sign_in" name="login" t:image="asset:context:static/img/btn_sign-in.gif" alt="Sign In" tabindex="3" />
+						</p>
+                    </div>
+				</form>
+
+            </div><!-- /main -->
+
+        </div><!-- /content -->
+
+
+	</div><!-- /sitewrapper -->
+
+</body>
+
+</html>
+
