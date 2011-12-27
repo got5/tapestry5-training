@@ -1,6 +1,6 @@
 <html t:type="layout" t:title="Register Form" xmlns="http://www.w3.org/1999/xhtml" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd">
 
-	<form t:id="registerForm" id="registerForm" method="post">
+	<form t:id="registerForm" id="registerForm" t:type="form">
 
 			<p><span t:type="errors" /></p>
 

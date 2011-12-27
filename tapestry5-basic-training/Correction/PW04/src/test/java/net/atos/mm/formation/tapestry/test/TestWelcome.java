@@ -1,7 +1,7 @@
 package net.atos.mm.formation.tapestry.test;
 
 import junit.framework.TestCase;
-
+import org.testng.annotations.Test;
 import org.apache.tapestry5.dom.Document;
 import org.apache.tapestry5.test.PageTester;
 
@@ -19,6 +19,7 @@ public class TestWelcome extends TestCase
 		super.setUp();
 	}
 
+        @Test
 	public void testWelcomePage()
 	{
 		
