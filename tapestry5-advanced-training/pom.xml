@@ -93,7 +93,7 @@
 				<version>2.8.1</version>
 				<configuration>
 					<suiteXmlFiles>
-						<suiteXmlFile>target/test-classes/testng.xml</suiteXmlFile>
+						<suiteXmlFile>src/test/conf/testng.xml</suiteXmlFile>
 					</suiteXmlFiles>
 				</configuration>
 			</plugin>
