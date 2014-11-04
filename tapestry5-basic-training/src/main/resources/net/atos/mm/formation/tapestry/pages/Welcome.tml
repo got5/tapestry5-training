@@ -1,11 +1,27 @@
-<html>
-	<head>
-		<meta name="copyright" content="Atos Origin" />
-		<title>Welcome Page</title>
-	</head>
-	
-	<body>
-		Welcome Page !!
-	</body>
+<!DOCTYPE html >
+<html lang="en" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+<head>
+    <title>Welcome Page</title>
+</head>
 
+<body>
+
+<div id="container">
+
+    <header role="banner">
+        <t:banner />
+    </header>
+
+    <div id="wrapper">
+            Welcome Page !!
+    </div>
+
+    <footer role="contentinfo">
+        <p class="k-copyright">Atos Copyright</p>
+    </footer>
+
+</div>
+
+
+</body>
 </html>

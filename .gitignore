@@ -1,0 +1,5 @@
+.metadata/
+tapestry5-basic-training/target/
+*.project
+*.classpath
+tapestry5-basic-training/.settings/

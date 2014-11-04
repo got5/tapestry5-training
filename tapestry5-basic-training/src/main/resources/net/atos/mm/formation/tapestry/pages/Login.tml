@@ -1,3 +1,28 @@
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd">
-			<p><span>The Login Page will be implemented later!!</span></p>
+<!DOCTYPE html >
+<html lang="en" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
+      xmlns:p="tapestry:parameter">
+<head>
+    <title>Login Page</title>
+</head>
+
+<body>
+
+<div id="container">
+
+    <header role="banner">
+        <t:banner />
+    </header>
+
+    <div id="wrapper">
+        <p><span>The Login Page will be implemented later!!</span></p>
+    </div>
+
+    <footer role="contentinfo">
+        _Footer_
+    </footer>
+
+</div>
+
+
+</body>
 </html>

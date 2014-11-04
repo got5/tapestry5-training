@@ -4,17 +4,23 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>net.awl.tapestry5</groupId>
 	<artifactId>tapestry5-templateProject</artifactId>
-	<version>1.1.1-SNAPSHOT</version>
+	<version>1.1.5-SNAPSHOT</version>
 	<packaging>jar</packaging>
 	<name>Tapestry 5 Training Application</name>
 
 	<dependencies>
-		<dependency>
-			<groupId>org.apache.tapestry</groupId>
-			<artifactId>tapestry-core</artifactId>
-			<version>${tapestry-release-version}</version>
-		</dependency>
-                <dependency>
+    <dependency>
+        <groupId>net.atos.tapestry</groupId>
+        <artifactId>tapestry5-kawwa-components</artifactId>
+        <version>2.0.6</version>
+    </dependency>
+    <!-- adding explicitly the 3.3.7 release of tapestry5-jquery because of a wrong transitive dependency from tapestry5-kawwa-components that brings the 3.3.7-SNAPSHOT (that doesn't exist!) -->
+    <dependency>
+        <groupId>org.got5</groupId>
+        <artifactId>tapestry5-jquery</artifactId>
+        <version>3.3.7</version>
+    </dependency>
+    <dependency>
 			<groupId>org.apache.tapestry</groupId>
 			<artifactId>tapestry-test</artifactId>
 			<version>${tapestry-release-version}</version>
@@ -39,6 +45,7 @@
 			<version>2.4</version>
 			<scope>test</scope>
 		</dependency>
+
 	</dependencies>
 
 	<build>
@@ -133,16 +140,6 @@
 		-->
 
 		<repository>
-			<id>xa-repo</id>
-			<url>http://xa.atosworldline.com/repository/maven/</url>
-		</repository>
-
-		<repository>
-			<id>tapestry-snapshots</id>
-			<url>http://tapestry.formos.com/maven-snapshot-repository/</url>
-		</repository>
-
-		<repository>
 			<id>codehaus.snapshots</id>
 			<url>http://snapshots.repository.codehaus.org</url>
 		</repository>
@@ -153,26 +150,31 @@
 			<name>OpenQA Maven Repository</name>
 			<url>http://maven.openqa.org/</url>
 		</repository>
+		 <repository>
+			<id>devlab722-repo</id>
+			<url>
+				http://nexus.devlab722.net/nexus/content/repositories/releases
+			</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>devlab722-snapshot-repo</id>
+			<url>
+				http://nexus.devlab722.net/nexus/content/repositories/snapshots
+			</url>
+			<releases>
+				<enabled>false</enabled>
+			</releases>
+		</repository>
 	</repositories>
 
-	<pluginRepositories>
-
-		<!--
-			As above, this can be commented out when access to the snapshot
-			version of a Tapestry Maven plugin is not required.
-		-->
-		<pluginRepository>
-			<id>tapestry-snapshots</id>
-			<url>http://tapestry.formos.com/maven-snapshot-repository/</url>
-		</pluginRepository>
-
-	</pluginRepositories>
-
-	<properties>
+        <properties>
 		<warName>training</warName>
 		<outputDirectory>target</outputDirectory>
 		<srcJarName>training</srcJarName>
-		<tapestry-release-version>5.2.6</tapestry-release-version>
+		<tapestry-release-version>5.3.7</tapestry-release-version>
 	</properties>
 
 </project>
