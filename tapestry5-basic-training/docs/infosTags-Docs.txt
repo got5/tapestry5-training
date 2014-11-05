@@ -35,3 +35,42 @@ Présentation Powerpoint
 - Structuration Maven des sources
 - Réorganisation des répertoires de corrections
 - Modifications sur le powerpoint (divers remarques formation Lyon 08/07/08 au 22/07/08
+
+# v1_7 (15/10/2012 by Bruno Verachten) 
+Suggestions concernant la formation Tapestry
+Il semblerait que nous n'insistions pas, du moins dans les slides, sur la différence entre id et t:id.
+Page 19, dans un encart, Igor y revient. PAGE 90
+On parle du layout dans la formation, mais on n'y fait presque pas référence dans les slides. Pourrait-on s'inspirer des pages 21 et suivantes pour le détailler un peu plus (t:content, t:body, etc...)?
+Eventuellement, parler du t:remove pour les commentaires... PAGE 106
+Page 33, Igor fait le lien entre les parameter bindings et les expansions. Il évoque notamment qu'on peut utiliser les préfixes avec les expansions (on n'en parle pas dans la formation). De même, page 39, il détaille l'utilisation des range et listes dans les parameter bindings. PAGE 38
+Il liste également des préfixes qu'on n'utilise ni ne cite dans la formation. Faudrait-il les ajouter? PAGE 38
+Page 36, Igor fait référence à l'utilisation directe des noms de méthodes dans les expansions, ainsi que l'utilisation de paramètres, statiques ou dynamiques, pour ces mêmes méthodes. Nous pourrions l'ajouter dans les slides. PAGE 39
+Page 37, Igor détaille l'utilisation des variables de rendu. On en parle un peu, mais sans aucune explication dans les slides. Commentaires PAGE 97
+Page 45, Igor décrit l'utilité de l'annotation @Persist pour faire transiter les informations d'une requête à l'autre, et notamment car pour une requête d'action, deux requêtes se suivent (action plus rendu). Pour l'instant dans la formation, on décrit bien les deux types de requêtes, et on décrit assez bien le @Persist, mais il serait sans doute bon de relier plus fortement les deux notions. PAGE 55
+Page 51: référence aux types de retour des méthodes de gestion d'événements. Ajout d'un nouveau type HTTPError, et d'un autre StreamPageContent. PAGE 83
+Page 52: les eventLinks sont bien décrits dans la formation, mais on pourrait insister sur l'utilisation de l'identifiant du composant comme nom de l'événement en cas d'absence de paramètre "event". Commentaires PAGE 118
+Page 57: la création de PageLink. On pourrait préciser dans nos slides qu'on peut faire référence à des sous-packages. On pourrait éventuellement parler du paramètre anchor. Commentaires page 117
+Page 63 : autant l'explication sur les méthodes d'activation coulent de source, autant j'ai du mal à faire passer celles de passivation. La partie « Pour aller plus loin » du tp n'est peut-être pas le meilleur exemple pour comprendre le passivate. Peut-être faudrait-il adapter l'explication sur le loopback de cette page 63 dans le TP ? PAGE 71
+Pages 66/67 : l'explication des ValueEncoders à la suite du passivate/activate est bien amenée. Dans la formation, les deux concepts sont disjoints, car vus à deux moments bien différents. Pourrait-on au moment où on parle des ValueEncoders relier au passivate/activate vu précédemment, et en profiter pour faire un TP (ajout d'une page pour afficher le détail d'un portefeuille avec activate/passivate?).
+Page 68 : Igor nous démontre l'utilité de l'annotation @PageActivationContext. Peut-être pourrait-on ajouter un « pour aller plus loin » dans le TP sur les ValueEncoders pour virer les méthodes activate/passivate ?
+Page 69 : Igor décrit la possibilité d'avoir plusieurs méthodes d'activation, et la bonne façon de les écrire (renvoyer true pour la plus complète, afin de signaler que le traitement a été effectué). A chaque formation, la question m'est posée, et je ne suis jamais très clair. On pourrait détailler un peu, et en profiter pour écrire deux ou trois méthodes d'activation dans le TP. PAGE 70
+Page 76 : paramètre write/read du @Property. A ajouter au slide sur @Property PAGE 36
+Page 76 : Igor précise bien qu'on n'est pas obligé de recourir au @Persist pour faire transiter de l'information dans une redirection. On peut se contenter d'un @Property avec la passivation pour conserver le message. A intégrer dans l'explication de la passivation, et éventuellement dans le TP ? 
+On pourrait également mettre en avant les avantages de l'utilisation de @onPassivate par rapport au @Persist (pas de mise en jeu de la session, possibilité d'avoir une URL bookmarkable).
+Page 114 : Igor précise bien la différence d'utilisation entre ThreadLocale et PersistentLocale. En gros, on peut se servir de PersistentLocale pour fixer la locale, mais pour la consulter, il vaut mieux utiliser ThreadLocale (persistenceLocale ne renvoie rien si la locale n'est pas fixée dans l'url). Dans la description de PersistentLocale, on pourrait ajouter une description de ThreadLocale, et faire le distinguo.
+
+#v1_8 (15/10/2012) Mise à jour des supports pour la dernière release (5.3.6)
+- Mise à jour des liens des TPs pour tapestry 5.3.6 (fr et en)
+- Mise à jour du footer.tml de la correction  : ajout d'un <h1> pour la mise en forme et "2012" au lieu de "2008"
+- Mise à jour du pom.xml pour pointer vers la dernière release 5.3.6
+- Remplacement de l'import "org.junit.Test" par "org.testng.annotations.Test" dans TestWelcome (Correction, PW 6)
+- Retouches mineures sur les doc des TPs (jdk 1.5 et +, utilisation des SymbolConstants)
+
+# Mises à jour suite a la formation du 20-22/11/2013
+- [TP4][correction] TestWelcome.java : add overrideModule to fix kawwa2 conflict
+- [TP5][correction] welcome.properties : remove key not used in the practical work
+- [TP14][correction] Register.tml : remove file not used in the pratical work
+- [TP18][correction] Country.tml : fix typo
+- tapestry5_basic_training_fr.ppt : fix typo
+- TP_Tapestry_FR.doc : fix typo
+
