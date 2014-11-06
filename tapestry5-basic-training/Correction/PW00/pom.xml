@@ -1,0 +1,180 @@
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>net.awl.tapestry5</groupId>
+	<artifactId>tapestry5-templateProject</artifactId>
+	<version>1.1.5-SNAPSHOT</version>
+	<packaging>jar</packaging>
+	<name>Tapestry 5 Training Application</name>
+
+	<dependencies>
+    <dependency>
+        <groupId>net.atos.tapestry</groupId>
+        <artifactId>tapestry5-kawwa-components</artifactId>
+        <version>2.0.6</version>
+    </dependency>
+    <!-- adding explicitly the 3.3.7 release of tapestry5-jquery because of a wrong transitive dependency from tapestry5-kawwa-components that brings the 3.3.7-SNAPSHOT (that doesn't exist!) -->
+    <dependency>
+        <groupId>org.got5</groupId>
+        <artifactId>tapestry5-jquery</artifactId>
+        <version>3.3.7</version>
+    </dependency>
+    <dependency>
+			<groupId>org.apache.tapestry</groupId>
+			<artifactId>tapestry-test</artifactId>
+			<version>${tapestry-release-version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.5</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>5.8</version>
+			<classifier>jdk15</classifier>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.easymock</groupId>
+			<artifactId>easymock</artifactId>
+			<version>2.4</version>
+			<scope>test</scope>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+		<finalName>training</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.5</source>
+					<target>1.5</target>
+					<optimize>true</optimize>
+				</configuration>
+			</plugin>
+
+			<!-- Run the application using "mvn jetty:run" -->
+			<plugin>
+				<groupId>org.mortbay.jetty</groupId>
+				<artifactId>maven-jetty-plugin</artifactId>
+				<version>6.1.9</version>
+				<configuration>
+					<!-- Log to the console. -->
+					<requestLog implementation="org.mortbay.jetty.NCSARequestLog">
+						<!--
+							This doesn't do anything for Jetty, but is a workaround for a
+							Maven bug that prevents the requestLog from being set.
+						-->
+						<append>true</append>
+					</requestLog>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<reporting>
+
+		<!--
+			Adds a report detailing the components, mixins and base classes
+			defined by this module.
+		-->
+		<plugins>
+
+			<!-- Add surefire report in the site generation -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<configuration>
+					<argLine>-Xms256m -Xmx512m</argLine>
+					<suiteXmlFiles>
+						<suiteXmlFile>src/test/resources/testng-suites.xml</suiteXmlFile>
+					</suiteXmlFiles>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.tapestry</groupId>
+				<artifactId>tapestry-component-report</artifactId>
+				<version>${tapestry-release-version}</version>
+				<configuration>
+					<rootPackage>net.atos.mm.tapestry.cache</rootPackage>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.0</version>
+				<configuration>
+					<warName>${warName}</warName>
+					<outputDirectory>${outputDirectory}</outputDirectory>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<configuration>
+					<finalName>${srcJarName}</finalName>
+				</configuration>
+			</plugin>
+
+		</plugins>
+
+
+	</reporting>
+
+	<repositories>
+		<!--
+			This can be commented out when the tapestry-release-version is a not
+			a snapshot. The non-snapshot Tapestry artifacts are distributed
+			through the central repository at ibiblio.
+		-->
+
+		<repository>
+			<id>codehaus.snapshots</id>
+			<url>http://snapshots.repository.codehaus.org</url>
+		</repository>
+
+		<!-- For access to the selenium JARs. -->
+		<repository>
+			<id>openqa</id>
+			<name>OpenQA Maven Repository</name>
+			<url>http://maven.openqa.org/</url>
+		</repository>
+		 <repository>
+			<id>devlab722-repo</id>
+			<url>
+				http://nexus.devlab722.net/nexus/content/repositories/releases
+			</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>devlab722-snapshot-repo</id>
+			<url>
+				http://nexus.devlab722.net/nexus/content/repositories/snapshots
+			</url>
+			<releases>
+				<enabled>false</enabled>
+			</releases>
+		</repository>
+	</repositories>
+
+        <properties>
+		<warName>training</warName>
+		<outputDirectory>target</outputDirectory>
+		<srcJarName>training</srcJarName>
+		<tapestry-release-version>5.3.7</tapestry-release-version>
+	</properties>
+
+</project>

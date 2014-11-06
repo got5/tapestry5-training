@@ -7,10 +7,10 @@
 	position: center;
 }
 .tbl1 {
-	background-color: #ADD8E6;
+	background-color: #ADD8E6 !important;
 }
 .tbl2 {
-	background-color: #E6E6FA;
+	background-color: #E6E6FA !important;
 }
 .bouton {
 	font-family: Verdana, Arial, Helvetica, sans-serif;

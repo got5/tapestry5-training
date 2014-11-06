@@ -1,6 +1,3 @@
-<t:container xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd">
-	<div id="header">
-		<p id="logo"><img src="${asset:context:/static/images/logo.gif}" /></p>
-		<h1>Tapestry 5 Training Application</h1>
-	</div>
+<t:container xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+	<h1>Tapestry 5 Training Application</h1>
 </t:container>
