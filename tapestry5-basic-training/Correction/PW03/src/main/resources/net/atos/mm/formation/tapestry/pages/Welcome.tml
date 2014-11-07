@@ -1,17 +1,33 @@
-<html>
+<!DOCTYPE html >
+<html lang="en" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+<head>
+    <title>Welcome Page</title>
+    <link type="text/css" rel="stylesheet" href="${asset:context:static/css/style.css}" />
+</head>
 
-	<head>
-		<meta name="copyright" content="Atos Origin" />
-		<title>Welcome Page</title>
-		<link href="${asset:context:static/css/style.css}" rel="stylesheet" type="text/css" />
-	</head>
+<body>
 
-	<body>
+<div id="container">
 
-		<p><img src="${asset:context:static/images/logo.gif}" /></p>
+    <header role="banner">
+        <img src="${asset:context:static/images/logo.gif}" style="float:left;" />
+        <t:banner />
+    </header>
 
-		<p>${message:welcome} (Session Start : ${sessionStart})</p>
-		
-	</body>
+    <div id="wrapper">
+            <p>${message:welcome}</p>
+            <p>${symbol:tapestry.supported-locales}</p>
+            <p>Session start: ${sessionStart}</p>
+    </div>
 
+    <footer role="contentinfo">
+	    <p class="k-copyright">
+	        Copyright &#169; 2013 Atos
+	    </p>    	
+    </footer>
+
+</div>
+
+
+</body>
 </html>
