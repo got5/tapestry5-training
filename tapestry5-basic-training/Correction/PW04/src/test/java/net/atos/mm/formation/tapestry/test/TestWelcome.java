@@ -1,9 +1,12 @@
 package net.atos.mm.formation.tapestry.test;
 
+import java.util.Locale;
+
 import junit.framework.TestCase;
-import org.testng.annotations.Test;
+
 import org.apache.tapestry5.dom.Document;
 import org.apache.tapestry5.test.PageTester;
+
 
 public class TestWelcome extends TestCase
 {
@@ -15,19 +18,25 @@ public class TestWelcome extends TestCase
 	{
 		String appPackage = "net.atos.mm.formation.tapestry";
 		String appName = "app";
-		pageTester = new PageTester(appPackage, appName, "src/main/webapp");
-		super.setUp();
+		pageTester = new PageTester(appPackage, appName, "src/main/webapp", OverrideModule.class);
 	}
 
-        @Test
-	public void testWelcomePage()
+	public void testLoginPage()
 	{
-		
 		Document doc = pageTester.renderPage("welcome");
 
 		assertNotNull(doc);
 		assertTrue(doc.getRootElement().getChildMarkup().contains("Bienvenue") || 
 				   doc.getRootElement().getChildMarkup().contains("Welcome"));
+	}
+	
+	public void testByLocale(){
+		pageTester.setPreferedLanguage(Locale.ENGLISH);
+		
+		Document doc = pageTester.renderPage("welcome");
+
+		assertNotNull(doc);
+		assertTrue(doc.getRootElement().getChildMarkup().contains("Welcome"));		
 	}
 
 }
