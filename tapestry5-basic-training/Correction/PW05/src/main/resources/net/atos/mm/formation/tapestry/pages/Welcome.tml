@@ -1,19 +1,35 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd">	
-	<head>
-		<meta name="copyright" content="Atos Origin" />
-		<title>Welcome Page</title>
-		<link href="${asset:context:static/css/style.css}" rel="stylesheet" type="text/css" />
-	</head>
+<!DOCTYPE html >
+<html lang="en" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+<head>
+    <title>Welcome Page</title>
+    <link type="text/css" rel="stylesheet" href="${asset:context:static/css/style.css}" />
+</head>
 
-	<body>
+<body>
 
-		<p><img src="${asset:context:static/images/logo.gif}" /></p>
+<div id="container">
 
-		<p>${message:welcome} (Session Start : ${sessionStart})</p>
-		
-		<a t:type="actionLink" t:id="hilo">${message:game}</a>
-		
-	</body>
+    <header role="banner">
+        <img src="${asset:context:static/images/logo.gif}" style="float:left;" />
+        <t:banner />
+    </header>
 
+    <div id="wrapper">
+            <p>${message:welcome}</p>
+            <p>${symbol:tapestry.supported-locales}</p>
+            <p>Session start: ${sessionStart}</p>
+            <br />
+            <p><a t:type="actionLink" t:id="hilo">${message:game}</a></p>
+    </div>
+
+    <footer role="contentinfo">
+	    <p class="k-copyright">
+	        Copyright &#169; 2013 Atos
+	    </p>    	
+    </footer>
+
+</div>
+
+
+</body>
 </html>
