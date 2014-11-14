@@ -1,14 +1,30 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd" xmlns:p="tapestry:parameter">
+<!DOCTYPE html >
+<html lang="en" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
+      xmlns:p="tapestry:parameter">
 <head>
-	<title>${title}</title>
-	<link href="${asset:context:static/css/style.css}" rel="stylesheet" type="text/css" />
+    <title>Welcome Page</title>
+    <link href="${asset:context:static/css/style.css}" rel="stylesheet" type="text/css" />
 </head>
+
 <body>
-	<div t:type="banner"></div>
-	
-	<t:body />
-	
-	<div t:type="footer"></div>
+
+<div id="container">
+
+    <header role="banner">
+    	<img src="${asset:context:static/images/logo.gif}" style="float:left;" />
+        <t:banner />
+    </header>
+
+    <div id="wrapper">
+        <t:body />
+    </div>
+
+    <footer role="contentinfo">
+        <t:footer />
+    </footer>
+
+</div>
+
+
 </body>
 </html>

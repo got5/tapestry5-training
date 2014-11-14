@@ -1,5 +1,7 @@
-<fieldset xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd">
-	<legend>
-		Copyright &#169; 2008 Atos Worldline
-	</legend>
-</fieldset>
+<t:container xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+	<footer role="contentinfo">
+		<p class="k-copyright">
+		    Copyright &#169; 2012 Atos
+		</p>
+	</footer>
+</t:container>
