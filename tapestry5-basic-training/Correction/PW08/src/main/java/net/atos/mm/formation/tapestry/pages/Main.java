@@ -102,6 +102,7 @@ public class Main {
 		if(GRID.equals(mode))
 			return advancedList;
 		return simpleList;
+
 	}
 
 	/**
