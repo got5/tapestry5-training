@@ -14,8 +14,8 @@ public class Guess
     /**
      * This variable is used to store in session the last message for the user
      */
-	@Property
 	@Persist
+	@Property
     private String message;
 
     /**
@@ -25,7 +25,7 @@ public class Guess
     private int guess;
 
     /**
-     * This variable is used to store the target number
+     * This variable is used to store in session the target number
      */
     @Persist
     private int target;
@@ -35,11 +35,6 @@ public class Guess
      */
     @Persist
     private int count;
-    
-    /**
-     * Used to create the random target
-     */
-    private long seed;
 
     /**
      * Used to redirect the user after a successful hit and then display the
@@ -96,25 +91,6 @@ public class Guess
 		this.count = 0;
 		this.message = null;
 		this.target = random.nextInt(10) + 1;
-		this.seed = seed;
-    }
-    
- // Aller plus loin
-    @OnEvent(EventConstants.ACTIVATE)
-    private void init(int guess, int count, long seed)
-    {
-		Random random = new Random(seed);
-	
-		this.seed = seed;
-		this.guess = guess;
-		this.count = count;
-		this.target = random.nextInt(10) + 1;
-    }
-
-    @OnEvent(EventConstants.PASSIVATE)
-    public Object[] getContext()
-    {
-    	return (new Object[] { Integer.valueOf(guess), Integer.valueOf(count), Long.valueOf(seed) });
     }
 
 }
