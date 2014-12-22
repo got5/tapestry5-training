@@ -1,13 +1,30 @@
-<html t:type="layout" t:title="Login Page" xmlns="http://www.w3.org/1999/xhtml" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd">
-		
-		<t:if t:test="maxAttemptsExceeded" t:negate="true">
-			<form t:type="beaneditform" t:id="verifyForm" t:object="user" include="login, password" t:submitLabel="message:submit-label">
-			</form>
-			
-			<t:parameter name="else">
-				<p>Le Formulaire est désactivé.</p>
-			</t:parameter>
-		</t:if>
-		
-		
+<!DOCTYPE html >
+<html lang="en" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
+      xmlns:p="tapestry:parameter">
+<head>
+    <title>Login Page</title>
+</head>
+
+<body>
+
+<div id="container">
+
+    <header role="banner">
+        <t:banner />
+    </header>
+
+    <div id="wrapper">
+        <span class="commts">Pour une nouvelle inscription, 
+        	<a t:type="pageLink" t:page="Register" href="Register">cliquez ici</a>
+        </span>
+    </div>
+
+    <footer role="contentinfo">
+        _Footer_
+    </footer>
+
+</div>
+
+
+</body>
 </html>
