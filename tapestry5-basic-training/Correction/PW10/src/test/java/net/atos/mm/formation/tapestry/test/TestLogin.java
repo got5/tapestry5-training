@@ -19,7 +19,7 @@ public class TestLogin extends TestCase
 	{
 		String appPackage = "net.atos.mm.formation.tapestry";
 		String appName = "app";
-		pageTester = new PageTester(appPackage, appName, "src/main/webapp");
+		pageTester = new PageTester(appPackage, appName, "src/main/webapp", OverrideModule.class);
 		super.setUp();
 	}
 
