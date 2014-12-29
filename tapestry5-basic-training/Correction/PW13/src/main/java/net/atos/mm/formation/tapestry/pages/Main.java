@@ -21,8 +21,9 @@ public class Main {
 
 	/** Show the Grid component */
 	private static final String GRID = "grid";
-
+	
 	private static final String DEFAULT_DATE_FORMAT = "dd/MM/yyyy";
+
 	/**
 	 * Used to have a reference on the authenticated user
 	 */
@@ -31,7 +32,7 @@ public class Main {
 	private User loggedUser;
 	
 	private boolean loggedUserExists;
-	
+
 	/**
 	 * Used to store a reference on the simple grid view
 	 */
@@ -66,46 +67,50 @@ public class Main {
 	 * Used to modify the display of "bookingDate"
 	 */
 	@Property
-	private SimpleDateFormat dateFormat;
+	private SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
 
 	/**
 	 * Used to store
 	 */
-	
 	private String rowClass;
 	
 	@Inject
-	private Messages messages;
+	private Messages messages;	
+
 	/**
 	 * Used to verify if the user is logged on
 	 * 
 	 * @return the Index page if user doesn't exist in session, null otherwise
 	 */
-	@OnEvent(EventConstants.ACTIVATE)
+	@OnEvent(value=EventConstants.ACTIVATE)
 	public Object assertUserExists() {
-		if (messages.contains("dateFormat")) {
-			try {
-				dateFormat = new SimpleDateFormat(messages.get("dateFormat"));
-			} catch (Exception ex) {
-				dateFormat = new SimpleDateFormat(DEFAULT_DATE_FORMAT);
+
+	    dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+			// Verify if user has logged in
+			if (!loggedUserExists) {
+				return Login.class;
 			}
-		} else {
-			dateFormat = new SimpleDateFormat(DEFAULT_DATE_FORMAT);
-		}
-		// Verify if user has logged in
-		if (!loggedUserExists) {
-			return Login.class;
-		}
+			
+			if (messages.contains("dateFormat")) {
+				try {
+					dateFormat = new SimpleDateFormat(messages.get("dateFormat"));
+				} catch (Exception ex) {
+					dateFormat = new SimpleDateFormat(DEFAULT_DATE_FORMAT);
+				}
+			} else {
+				dateFormat = new SimpleDateFormat(DEFAULT_DATE_FORMAT);
+			}			
 
 		return null;
+
 	}
+
 	/**
 	 * This method is used for the zebra effect on the grid
 	 * 
 	 * @return "tbl1" or "tlb2" in function of "index modulo 2"
 	 */
 	public String getRowClass() {
-		// Implement here the choice of CSS class used to display a row
 		// Implement here the choice of CSS class used to display a row
 		if (index % 2 == 0) {
 			return "tbl1";
@@ -127,6 +132,7 @@ public class Main {
 		if(GRID.equals(mode))
 			return advancedList;
 		return simpleList;
+
 	}
 
 	/**
