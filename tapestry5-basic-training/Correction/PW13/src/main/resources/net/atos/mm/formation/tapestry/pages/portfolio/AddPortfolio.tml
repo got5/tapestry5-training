@@ -1,41 +1,54 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd">
+<!DOCTYPE html >
+<html lang="en" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
+      xmlns:p="tapestry:parameter">
+<head>
+    <title>Portfolio Page</title>
+</head>
 
-	<head>
-		<meta name="copyright" content="Atos Origin" />
-		<title>Ajout de portfolio</title>
-		<link href="${asset:context:static/css/style.css}" rel="stylesheet" type="text/css" />
-	</head>
+<body>
 
-	<body>
-		<p t:type="banner"></p>
-			
-		<form id="addPortolfioForm" t:type="beaneditform" t:object="portfolio" t:submitLabel="message:submit">
+<div id="container">
+
+    <header role="banner">
+        <t:banner />
+    </header>
+
+    <div id="wrapper">
+		<form id="addPortolfioForm" t:type="beaneditform" t:object="portfolio" t:submitLabel="message:submit"
+			t:clientValidation="true"
+		>
 			<p><span t:type="errors" /></p>
 
-			<t:parameter name="label">
+			<p:label>
 				<p>
 					<label t:type="label" t:for="label"/>
 					<input t:type="textfield" t:id="label" t:value="portfolio.label" t:validate="required"/>
 				</p>
-			</t:parameter>	
+			</p:label>
 
-			<t:parameter name="amount">
+			<p:amount>
 				<p>
 					<label t:type="label" t:for="amount"/>
-					<input t:type="textfield" t:id="amount" t:value="portfolio.amount" t:validate="required,min=100"/>
+					<input t:type="textfield" t:id="amount" t:value="portfolio.amount" t:validate="min=100"/>
 				</p>
-			</t:parameter>
+			</p:amount>
 			
-			<t:parameter name="bookingDate">
+			<p:bookingDate>
 				<p>
 					<label t:type="label" t:for="bookingDate"/>
-					<input t:type="datefield" t:format="MM/dd/yy" t:id="bookingDate" t:value="portfolio.bookingDate" t:validate="required"/>
+					<input t:type="datefield" t:format="dd/MM/yy" t:id="bookingDate" t:value="portfolio.bookingDate" t:validate="required"/>
 				</p>
-			</t:parameter>
+			</p:bookingDate>
 			
 		</form>
+    </div>
 
-	</body>
+    <footer role="contentinfo">
+        _Footer_
+    </footer>
 
+</div>
+
+
+</body>
 </html>
