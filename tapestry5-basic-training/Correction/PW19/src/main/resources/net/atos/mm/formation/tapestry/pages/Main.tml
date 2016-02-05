@@ -1,0 +1,103 @@
+<!DOCTYPE html >
+<html t:type="layout" t:title="Main Page" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
+	xmlns:p="tapestry:parameter"
+>
+
+	<div t:type="menu" t:listOfActions="loggedUser.actions"></div>
+	
+	<div id="main">
+	    <p>Bonjour Mr 
+	    <b>
+            <t:jquery.dialoglink t:dialog="userView" t:zone="zoneUser">
+                ${loggedUser.login}
+            </t:jquery.dialoglink>	    
+	    </b>.</p>
+	    
+	    
+	    
+
+	    <t:jquery.dialog t:clientId="userView">
+	        <div t:type="zone" t:id="zoneUser">
+	            <form t:id="userViewForm" id="userViewForm" t:type="form">
+	
+	                <fieldset id="fsGeneral">
+	                    <p><label for="login">Login</label> <input t:type="textfield" t:value="loggedUser.login" id="login"  t:disabled="true" /></p>
+	                    <p><label for="password">Password</label> <input t:type="passwordfield" t:value="loggedUser.password" id="password" value=""  t:disabled="true" /></p>
+	                    <p><label for="email">Email</label> <input t:type="textfield" t:value="loggedUser.email"  id="email" t:disabled="true" /></p>
+	                    <p><label for="age">Age</label> <input t:type="textfield" t:value="loggedUser.age" id="age" t:disabled="true" /></p>
+	                    <p><a t:type="eventlink" t:event="closeUserDialog" t:zone="^">Close</a></p>
+	                </fieldset>
+	            </form>
+	        </div>
+	    </t:jquery.dialog>	    
+	
+	    <p>Voici la liste de vos portefeuilles :</p>
+	
+		
+	    <!-- Define blocks for view and edit mode -->
+	    <div t:type="delegate" t:to="porfoliosGrid"></div>
+	    
+	    <t:block t:id="simpleList">
+	        <!-- Define blocks for view and edit mode -->
+	        <p><a t:type="actionLink" t:id="advanced">Advanced Grid</a></p>
+	
+	        <table border="1" cellpadding="0" cellspacing="0" class="forms">
+	
+	            <tr>
+	                <th align="center" >Label</th>
+	                <th align="center" >Amount</th>
+	                <th align="center" >Booking date</th>
+	                <th align="center" >details</th>
+	            </tr>
+	
+	            <tr t:type="loop" t:index="index" t:value="currentPortfolio" t:source="loggedUser.portfolios" class="${rowClass}">
+	                <td align="center">${currentPortfolio.label}</td>
+	                <td align="center">${currentPortfolio.amount}</td>
+	                <td align="center">
+	                	<t:output t:value="currentPortfolio.bookingDate" t:format="message:dateFormat" />
+	                </td>
+	                <td align="center">
+	                    <a t:type="eventlink" t:event="viewPortfolio" t:context="currentPortfolio.label" t:zone="portfolioZone">
+	                        <img src="${asset:context:static/images/icon-view.png}"/>
+	                    </a>
+	                </td>	                
+	            </tr>
+	        </table>
+	    </t:block>
+	    
+	    <t:block id="advancedList">
+	        <p><a t:type="actionlink" t:id="simple">Simple Grid</a></p>
+	         <table 
+	         	t:type="grid" 
+	         	t:source="loggedUser.portfolios" 
+	         	t:rowIndex="index" 
+	         	t:row="currentPortfolio" 
+	         	t:pagerPosition="top" 
+	         	t:rowsPerPage="3"
+	         	t:rowClass="rowClass"
+	         	t:add="actions"
+	         >
+	            <p:bookingDateCell>
+	                <t:output t:value="currentPortfolio.bookingDate" t:format="message:dateFormat" />
+	            </p:bookingDateCell>
+	            
+	            <p:actionsHeader/>
+	            <p:actionsCell>
+	                <a t:type="eventlink" t:event="viewPortfolio" t:context="currentPortfolio.label" t:zone="portfolioZone">
+	                	<img src="${asset:context:static/images/icon-view.png}"/>
+	                    view
+	                </a>
+	            </p:actionsCell>	            
+            </table>	         
+	    </t:block>	 
+	    
+	    <div t:type="zone" t:id="portfolioZone">
+	        <t:if t:test="selectedPortfolio">
+	            ${message:portfolio-detail}: ${selectedPortfolio}.
+	        </t:if>
+    	</div>
+	       
+	
+	</div>
+
+</html>
